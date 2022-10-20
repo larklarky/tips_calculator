@@ -1,0 +1,87 @@
+@import url('index.css');
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: .3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var( --dark-grayish-cyan);
+  }
+  
+  input {
+    outline: none;
+    padding: .7rem 1.2rem;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 5px;
+    text-align: right;
+    border: 2px solid var(--dark-grayish-cyan);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--very-dark-cyan);
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  .bill {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  .bill > .dollar {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 1.2rem;
+  }
+  
+  form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    font-family: 'Space Mono', sans-serif;
+    box-sizing: border-box;
+    background: white;
+  }
+  
+  .tips {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: .7rem;
+    justify-content: flex-start;
+    width: 400px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tips > .tip {
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+    padding: .5rem 1.7rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    min-width: 60px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .tips > .tip:hover {
+    color: var(--white);
+    background-color: var(--primary-cian);
+  }
+  
+  .tip.custom {
+    padding: .5rem 1.4rem;
+  }

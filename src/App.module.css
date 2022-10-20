@@ -1,0 +1,20 @@
+@import url('index.css');
+
+.App {
+  text-align: center;
+  font-family: 'Space Mono', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem;
+}
+
+.app-name {
+  font-weight: 700;
+  letter-spacing: .5rem;
+  text-transform: uppercase;
+  color: var(--very-dark-cyan);
+  font-size: 1.5rem;
+  
+}

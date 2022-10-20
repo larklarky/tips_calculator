@@ -1,0 +1,66 @@
+@import url('index.css');
+
+.results {
+    width: 400px;
+    background-color: var(--very-dark-cyan);
+    border-radius: 13px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    
+  }
+  
+  .result {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+    align-items: center;
+  
+  
+  }
+  
+  .title > h4, .title > p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .title > h4 {
+    color: var(--white);
+  }
+  
+  .title > p {
+    color: var(--light-grayish-cyan);
+  }
+  
+  .number {
+    font-weight: 700;
+    color: var(--primary-cian);
+    font-size: 2rem;
+  }
+  
+  .reset {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+  }
+  
+  button {
+    padding: .5rem 5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    background-color: var(--primary-cian);
+    border-radius: 5px;
+    color: var(--white);
+    text-transform: uppercase;
+    font-family: 'Space Mono', sans-serif;
+  }
