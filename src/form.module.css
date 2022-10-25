@@ -33,6 +33,7 @@ label {
     font-family: 'Space Mono', sans-serif;
   }
 
+
   input:invalid{
     border: 2px solid orange;
   }
@@ -106,7 +107,7 @@ label {
     border-radius: 5px;
   }
   
-  .tips > .tip:hover {
+  .tips > .tip:hover, .tip.selected {
     color: var(--white);
     background-color: var(--primary-cian);
   }

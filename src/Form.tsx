@@ -1,6 +1,10 @@
 import styles from './form.module.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaUser } from 'react-icons/fa';
+
+interface Props {
+    handler: (tip: number, total: number) => void;
+}
 
 const tips = [
     {value: '5', key: 1},
@@ -10,15 +14,23 @@ const tips = [
     {value: '50', key: 5},
 ]
 
-export const Form = () => {
+export const Form = ({handler}: Props) => {
     const [bill, setBill] = useState<number>();
     const [people, setPeople] = useState<number>(1)
-    const [tip, setTip] = useState<number>(0)
+    const [tip, setTip] = useState<number | undefined>()
     const [isCustom, setIsCustom] = useState<boolean>(false)
 
+    useEffect(() => {
+        if(bill && bill > 0 && people > 0) {
+            let tipAmount =( bill / 100) * (tip || 0) / people;
+            let total = bill / people + tipAmount;
+            handler(tipAmount, total)
+        }
+    }, [bill, people, tip])
+
     const HandleClickOnCustom = () => {
-        if (!isCustom && tip > 0) {
-            setTip(0)
+        if (!isCustom && tip && tip > 0) {
+            setTip(undefined)
             setIsCustom(true)
         } else if(!isCustom) {
             setIsCustom(true)
@@ -38,26 +50,35 @@ export const Form = () => {
             
             <label>Select tip %</label>
             <div className={styles.tips}>
-                {tips.map(tip => {
+                {tips.map(tipItem => {
                     return(
                         <div 
-                            key={tip.key} 
-                            className={styles.tip}
+                            key={tipItem.key} 
+                            className={Number(tipItem.value) === tip && !isCustom ? `${styles.tip} ${styles.selected}` : styles.tip}
                             onClick={e => {
                                 if(isCustom) {
                                     setIsCustom(false)
-                                    setTip(Number(tip.value))
+                                    setTip(Number(tipItem.value))
                                 }
-                                setTip(Number(tip.value))
+                                setTip(Number(tipItem.value))
                             }}
                         
-                        >{tip.value}%</div>
+                        >{tipItem.value}%</div>
                     )
                 })}
-                {isCustom ? <input type='number' autoFocus={isCustom ? true : false} onChange={e => setTip(parseFloat(e.target.value))} className={`${styles.custom}`} placeholder='0' value={tip}/> : <div 
-                    className={`${styles.tip} ${styles.custom}`}
-                    onClick={e => {HandleClickOnCustom()}}
-                >Custom</div>}
+                {isCustom ? (
+                    <input 
+                        type='number'
+                        autoFocus={isCustom ? true : false}
+                        onChange={e => setTip(parseFloat(e.target.value))}
+                        className={`${styles.custom}`}
+                        placeholder='0' value={tip}/>
+                ) : (
+                    <div 
+                        className={`${styles.tip} ${styles.custom}`}
+                        onClick={e => {HandleClickOnCustom()}}
+                    >Custom</div>
+                )}
             </div>
             <div className={styles.people}>
                 <label>Number of people {people === 0 ? <span className={styles.error}>Can't be zero</span> : ''}</label>
