@@ -35,5 +35,7 @@ code {
   padding: 1.5rem;
   border-radius: 15px;
   font-family: 'Space Mono', sans-serif;
+  column-gap: 1rem;
+  box-sizing: border-box;
 }
 
