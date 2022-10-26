@@ -63,4 +63,5 @@
     color: var(--white);
     text-transform: uppercase;
     font-family: 'Space Mono', sans-serif;
+    cursor: pointer;
   }

@@ -3,9 +3,10 @@ import styles from './results.module.css';
 interface Result {
     tip: number;
     total: number;
+    handler: () => void;
 }
 
-export const Results = ({tip, total}: Result) => {
+export const Results = ({tip, total, handler}: Result) => {
     return(
         <div className={styles.results}>
             <div className={styles.result}>
@@ -23,7 +24,7 @@ export const Results = ({tip, total}: Result) => {
                 <div className={styles.number}>${total.toFixed(2)}</div>
             </div>
             <div className={styles.reset}>
-                <button>Reset</button>
+                <button onClick={e => handler()}>Reset</button>
             </div>
         
         </div>
