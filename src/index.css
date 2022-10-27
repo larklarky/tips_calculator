@@ -39,3 +39,17 @@ code {
   box-sizing: border-box;
 }
 
+@media only screen and (max-width: 540px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .container {
+    border-radius: 25px;
+    padding: 1rem;
+    align-items: center;
+  }
+}
+

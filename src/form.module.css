@@ -120,3 +120,20 @@ label {
     width: 7.3rem;
     padding: 6px 20px;
   }
+
+  @media only screen and (max-width: 414px) {
+    form {
+      width: 370px;
+    }
+
+    .tips {
+      width: 340px;
+      justify-content: center;
+
+    }
+
+    .tips > .tip {
+      min-width: 100px;
+      padding: .6rem 2rem;
+    }
+  }
